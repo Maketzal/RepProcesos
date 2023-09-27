@@ -1,0 +1,24 @@
+{
+  "name": "repprocesos",
+  "version": "1.0.0",
+  "description": "ArquitecturaBaseP2",
+  "main": "index.js",
+  "scripts": {
+    "testW": "node_modules\\.bin\\jasmine-node servidor",
+    "test": "./node_modules/.bin/jasmine-node servidor"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maketzal/RepProcesos.git"
+  },
+  "author": "CarlosMaqueda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Maketzal/RepProcesos/issues"
+  },
+  "homepage": "https://github.com/Maketzal/RepProcesos#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "jasmine-node": "^3.0.0"
+  }
+}

@@ -1,10 +1,21 @@
-/*
+const fs=require("fs");
+const express = require('express');
+const app = express();
+const modelo = require("./servidor/modelo.js");
 
-git add .
+const PORT = process.env.PORT || 3000;
 
-git commit -m"cambios"
+app.use(express.static(__dirname + "/"));
 
-git push
+let sistema = new modelo.Sistema();
 
+app.get("/", function(request,response){
+    let contenido=fs.readFileSync(__dirname+"/cliente/index.html");
+    response.setHeader("Content-type","text/html");
+    response.send(contenido);
+});
 
-*/
+app.listen(PORT, () => {
+    console.log(`App está escuchando en el puerto ${PORT}`);
+    console.log('Ctrl+C para salir');
+});
