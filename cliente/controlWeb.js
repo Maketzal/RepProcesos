@@ -7,6 +7,7 @@ function ControlWeb(){
         cadena = cadena + '</div>'
 
         $("#au").append(cadena);
+
         $("#btnAU").on("click",function(){
             let nick=$("#nick").val()
             rest.agregarUsuario(nick)
