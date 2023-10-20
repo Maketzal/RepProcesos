@@ -1,9 +1,12 @@
 const fs = require("fs");
 const express = require('express');
 const app = express();
+const modelo = require("./servidor/modelo.js");
+
 const passport = require('passport');
 const cookieSession = require("cookie-session");
-const modelo = require("./servidor/modelo.js");
+require("./servidor/passport-setup.js");
+
 
 const PORT = process.env.PORT || 3000;
 
@@ -21,6 +24,11 @@ app.listen(PORT, () => {
     console.log(`App está escuchando en el puerto ${PORT}`);
     console.log('Ctrl+C para salir');
 });
+
+app.use(cookieSession({
+    name: 'Makegame',
+    keys: ['key1', 'key2']
+}));
 
 app.get("/agregarUsuario/:nick",function(request,response){
     let nick=request.params.nick;
@@ -50,11 +58,6 @@ app.get("/eliminarUsuario/:nick",function(request,response){
     let res=sistema.eliminarUsuario(nick);
     response.send(res);
 });
-
-app.use(cookieSession({
-    name: 'Makegame',
-    keys: ['key1', 'key2']
-   }));
 
 app.use(passport.initialize());
 app.use(passport.session());
