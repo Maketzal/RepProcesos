@@ -1,3 +1,4 @@
+const datos=require("./cad.js");
 function Sistema(){
     this.usuarios={};
     this.agregarUsuario=function(nick){
@@ -10,11 +11,11 @@ function Sistema(){
             console.log("el nick "+nick+" está en uso");
         }
         return res;
-        }
+    }
     this.obtenerUsuarios=function(){
         console.log(this.usuarios)
         return this.usuarios;
-        }
+    }
     this.usuarioActivo=function(nick){
         return (nick in this.usuarios);
     }

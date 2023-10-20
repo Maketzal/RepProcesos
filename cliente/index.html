@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Buenas tardes</title>
+    <title>Makistema</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <!-- jQuery library -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
@@ -13,6 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js" integrity="sha512-aUhL2xOCrpLEuGD5f6tgHbLYEXRpYZ8G5yD+WlFrXrPy2IrWBlu6bih5C9H6qGsgqnU6mgx6KtU8TreHpASprw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./cliente/clienteRest.js"></script>
     <script src="./cliente/controlWeb.js"></script>
     <!--<script src="./modelo.js"></script>-->
@@ -39,12 +40,14 @@
         <h3>Makistema</h3>
         <p>Sistema base de Carlos Maqueda</p>
         <div id="au"></div>
+        <div id="msg"></div>
     </div>
     
     <script>
-        rest=new ClienteRest();
         cw=new ControlWeb();
-        cw.mostrarAgregarUsuario();
+        rest=new ClienteRest(cw);
+        //cw.mostrarAgregarUsuario();
+        cw.comprobarSesion();
     </script>
 </body>
 </html>

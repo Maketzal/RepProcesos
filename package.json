@@ -7,7 +7,7 @@
     "start": "node index.js",
     "testW": "node_modules\\.bin\\jasmine-node servidor",
     "test": "./node_modules/.bin/jasmine-node servidor"
-    },
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Maketzal/RepProcesos.git"
@@ -19,7 +19,10 @@
   },
   "homepage": "https://github.com/Maketzal/RepProcesos#readme",
   "dependencies": {
+    "cookie-session": "^2.0.0",
     "express": "^4.18.2",
-    "jasmine-node": "^3.0.0"
+    "jasmine-node": "^1.16.0",
+    "passport": "^0.5.3",
+    "passport-google-oauth20": "^2.0.0"
   }
 }
