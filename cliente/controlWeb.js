@@ -27,12 +27,14 @@ function ControlWeb(){
         $('#msg').append(cadena)
     }
     this.comprobarSesion=function(){
+        //let nick=localStorage.getItem("nick");
         let nick=$.cookie("nick");
         if (nick){
             cw.mostrarMensaje("Bienvenido al sistema, "+nick);
         }
         else{
             cw.mostrarAgregarUsuario();
+            cw.init();
         }
     }
     this.salir=function(){
@@ -42,5 +44,21 @@ function ControlWeb(){
     this.usuarios=function(){
         rest.obtenerUsuarios();
     }
-       
+    this.init=function(){
+        let cw=this;
+        google.accounts.id.initialize({
+            client_id:"1093955630911-lvsc0isicojmj24qt6npf78k3ccfb89p.apps.googleusercontent.com", //prod
+            auto_select:false,
+            callback:cw.handleCredentialsResponse
+        });
+        google.accounts.id.prompt();
+    }
+    this.handleCredentialsResponse=function(response){
+        let jwt=response.credential;
+        //let user=JSON.parse(atob(jwt.split(".")[1]));
+        //console.log(user.name);
+        //console.log(user.email);
+        //console.log(user.picture);
+        rest.enviarJwt(jwt);
+    }
 }

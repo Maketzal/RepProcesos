@@ -5,6 +5,7 @@ const modelo = require("./servidor/modelo.js");
 
 const passport = require('passport');
 const cookieSession = require("cookie-session");
+const bodyParser=require("body-parser");
 require("./servidor/passport-setup.js");
 
 
@@ -80,4 +81,16 @@ app.get("/good", function(request,response){
 
 app.get("/fallo",function(request,response){
     response.send({nick:"nook"})
+});
+
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
+
+app.post("/enviarJwt",function(request,response){
+    let jwt=request.body.jwt;
+    let user=JSON.parse(atob(jwt.split(".")[1]));
+    let email=user.email;
+    sistema.usuarioGoogle({"email":email},function(obj){
+    response.send({'nick':obj.email});
+    });
 });

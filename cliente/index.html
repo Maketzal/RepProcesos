@@ -14,11 +14,15 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js" integrity="sha512-aUhL2xOCrpLEuGD5f6tgHbLYEXRpYZ8G5yD+WlFrXrPy2IrWBlu6bih5C9H6qGsgqnU6mgx6KtU8TreHpASprw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- OneTap -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    
     <script src="./cliente/clienteRest.js"></script>
     <script src="./cliente/controlWeb.js"></script>
     <!--<script src="./modelo.js"></script>-->
 </head>
-<body>
+<body onload="ini();">
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <!-- Brand/logo -->
         <a class="navbar-brand" href="#">Logo</a>
@@ -43,10 +47,11 @@
         <div id="msg"></div>
     </div>
     <script>
-        cw=new ControlWeb();
-        rest=new ClienteRest(cw);
-        //cw.mostrarAgregarUsuario();
-        cw.comprobarSesion();
+        function ini(){
+            cw=new ControlWeb();
+            rest=new ClienteRest(cw);
+            cw.comprobarSesion();
+        };
     </script>
 </body>
 </html>
