@@ -38,7 +38,9 @@ function ControlWeb(){
     this.salir=function(){
         $.removeCookie("nick");
         location.reload();
-        cw.mostrarMensaje("Sesión cerrada correctamente");
+    }
+    this.usuarios=function(){
+        rest.obtenerUsuarios();
     }
        
 }
